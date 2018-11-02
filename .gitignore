@@ -1,0 +1,7 @@
+
+build/js
+build/R
+temp/
+
+.Rproj.user
+*.jmo
