@@ -1,0 +1,44 @@
+---
+name:  Normaldistribution
+title: Normal Distribution
+jrs:   '1.1'
+
+items:
+    - name: Inputs
+      title: Input values
+      type: Table
+      rows: 2
+      columns:
+        - name: ParametersColumn
+          title: Parameters
+          type: text
+        - name: DistributionFunctionColumn
+          title: "'Compute probability'"
+          type: text
+          visible: (DistributionFunction)
+        - name: QuantileFunctionColumn
+          title: "'Compute quantile(s)'"
+          type: text
+          visible: (QuantileFunction)
+
+    - name: Outputs
+      title: "Results"
+      type: Table
+      rows: 1
+      columns:
+        - name: DistributionResultColumn
+          title: Probability
+          type: text
+          visible: (DistributionFunction)
+        - name: QuantileResultColumn
+          title: Quantile(s)
+          type: text
+          visible: (QuantileFunction)
+          
+    - name: plot
+      title: ""
+      type:  Image
+      width:  500
+      height: 400
+      renderFun: .plot
+...

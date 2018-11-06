@@ -1,0 +1,50 @@
+---
+title: >-
+  distrACTION - Quantiles and Probabilities of Continuous and Discrete
+  Distributions
+name: distrACTION
+version: 1.0.0
+jms: '1.0'
+authors:
+  - Michael Rihs
+  - Boris Mayer
+maintainer: The package maintainer <michael.rihs@psy.unibe.ch>
+date: '2018-10-02'
+type: R
+description: >-
+  A tool for calculating and plotting the cumulative distribution function (CDF)
+  and the quantile function (Inverse CDF) for a number of discrete and
+  continuous distributions.
+analyses:
+  - title: Normal Distribution
+    name: Normaldistribution
+    ns: distrACTION
+    menuGroup: distrACTION
+    menuTitle: Normal Distribution
+    menuSubgroup: Continuous distributions
+  - title: T-Distribution
+    name: TDistribution
+    ns: distrACTION
+    menuGroup: distrACTION
+    menuTitle: T-Distribution
+    menuSubgroup: Continuous distributions
+  - title: χ2-Distribution
+    name: Chi2Distribution
+    ns: distrACTION
+    menuGroup: distrACTION
+    menuTitle: χ2-Distribution
+    menuSubgroup: Continuous distributions
+  - title: F-Distribution
+    name: FDistribution
+    ns: distrACTION
+    menuGroup: distrACTION
+    menuTitle: F-Distribution
+    menuSubgroup: Continuous distributions
+  - title: Binomial Distribution
+    name: BinomialDistribution
+    ns: distrACTION
+    menuGroup: distrACTION
+    menuTitle: Binomial Distribution
+    menuSubgroup: Discrete distributions
+
+...
