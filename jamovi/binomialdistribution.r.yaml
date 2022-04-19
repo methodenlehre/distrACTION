@@ -28,12 +28,14 @@ items:
       columns:
         - name: DistributionResultColumn
           title: Probability
-          type: text
+          type: number
           visible: (DistributionFunction)
-        - name: QuantileResultColumn
+          format: zto
+        - name: QuantileColumn
           title: Quantile(s)
-          type: text
+          type: number
           visible: (QuantileFunction)
+          
           
     - name: plot
       title: ""
