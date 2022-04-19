@@ -140,27 +140,26 @@ BinomialDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
             DistributionResult <- 1-DistributionResult}
           if(DistributionFunctionType=="is"){
             DistributionResult <- dbinom(XValue, DP1, DP2)}
-          DistributionResult <- round(DistributionResult, digits = 3)
-          OutputLabel11 <- paste("P = ", DistributionResult, sep = "")}
-        if(QuantileFunction=="TRUE"){
+          OutputLabel11 <- DistributionResult
+          }
+                if(QuantileFunction=="TRUE"){
           if (QuantileFunctionType=="cumulative") {
-            QuantileResult <- round(QuantileResult, digits = 3)
             OutputLabel12 <- paste("x1 = ", QuantileResult, sep = "")}
+        
           if (QuantileFunctionType=="central") {
-            QuantileResult <- round(QuantileResult, digits = 3)
             OutputLabel12 <- paste("x1 = ", QuantileResult, sep = "")
-            QuantileResult2 <- round(QuantileResult2, digits = 3)
             OutputLabel22 <- paste("x2 = ", QuantileResult2, sep = "")}}
-        OutputSummary <- matrix(c(OutputLabel11, OutputLabel21, OutputLabel12, OutputLabel22), ncol=2, nrow=2)
+        
+
         # The Output-Matrix is written to the according Result-Frame
         Outputs <- self$results$Outputs
-        Outputs$setRow(rowNo=1, values=list(
-          DistributionResultColumn=OutputSummary[1,1],
-          QuantileResultColumn=OutputSummary[1,2]))    
+         Outputs$setRow(rowNo=1, values=list(
+          DistributionResultColumn=OutputLabel11,
+          QuantileColumn=OutputLabel12))    
         if((QuantileFunction=="TRUE")&(QuantileFunctionType=="central")){
           Outputs$addRow(rowKey=2, values=list(
-            DistributionResultColumn=OutputSummary[2,1],
-            QuantileResultColumn=OutputSummary[2,2]))}
+            DistributionResultColumn=OutputLabel21,
+            QuantileColumn=OutputLabel22))}
         
         
         ###### 1.3) Plot preparation ######

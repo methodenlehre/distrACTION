@@ -28,7 +28,8 @@ items:
       columns:
         - name: DistributionResultColumn
           title: Probability
-          type: text
+          type: number
+          format: zto
           visible: (DistributionFunction)
         - name: QuantileResultColumn
           title: Quantile(s)
