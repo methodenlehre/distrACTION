@@ -27,13 +27,26 @@ items:
       rows: 1
       columns:
         - name: DistributionResultColumn
-          title: Probability
-          type: text
+          title: P
+          type: number
+          format: zto
           visible: (DistributionFunction)
+          superTitle: Probability
         - name: QuantileResultColumn
-          title: Quantile(s)
-          type: text
-          visible: (QuantileFunction)
+          title: x1
+          type: integer
+          visible: (QuantileFunction && QuantileFunctionType=="cumulative")
+          superTitle: Quantile
+        - name: QuantileLowerResultColumn
+          title: x1
+          type: integer
+          visible: (QuantileFunction && QuantileFunctionType=="central")
+          superTitle: Quantiles
+        - name: QuantileUpperResultColumn
+          title: x2
+          type: integer
+          visible: (QuantileFunction && QuantileFunctionType=="central")
+          superTitle: Quantiles
           
     - name: plot
       title: ""
