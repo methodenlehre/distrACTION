@@ -28,12 +28,24 @@ items:
       columns:
         - name: DistributionResultColumn
           title: Probability
-          type: text
+          type: number
+          format: zto
           visible: (DistributionFunction)
         - name: QuantileResultColumn
-          title: Quantile(s)
-          type: text
-          visible: (QuantileFunction)
+          title: x1
+          type: integer
+          visible: (QuantileFunction && QuantileFunctionType=="cumulative")
+          superTitle: Quantile(s)
+        - name: QuantileLowerResultColumn
+          title: x1
+          type: integer
+          visible: (QuantileFunction && QuantileFunctionType=="central")
+          superTitle: Quantile(s)
+        - name: QuantileUpperResultColumn
+          title: x2
+          type: integer
+          visible: (QuantileFunction && QuantileFunctionType=="central")
+          superTitle: Quantile(s)
           
     - name: plot
       title: ""
