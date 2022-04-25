@@ -25,14 +25,19 @@ items:
       title: "Results"
       type: Table
       rows: 1
+      clearWith:  # <-- here
+        - group
+        - alt
+        - varEq
       columns:
         - name: DistributionResultColumn
           title: Probability
-          type: text
+          type: number
+          format: zto
           visible: (DistributionFunction)
         - name: QuantileResultColumn
           title: Quantile
-          type: text
+          type: number
           visible: (QuantileFunction)
           
     - name: plot

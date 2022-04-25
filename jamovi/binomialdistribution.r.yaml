@@ -25,6 +25,10 @@ items:
       title: "Results"
       type: Table
       rows: 1
+      clearWith:  # <-- here
+        - group
+        - alt
+        - varEq
       columns:
         - name: DistributionResultColumn
           title: Probability
@@ -35,17 +39,17 @@ items:
           title: x1
           type: integer
           visible: (QuantileFunction && QuantileFunctionType=="cumulative")
-          superTitle: Quantile(s)
+          superTitle: Quantile
         - name: QuantileLowerResultColumn
           title: x1
           type: integer
           visible: (QuantileFunction && QuantileFunctionType=="central")
-          superTitle: Quantile(s)
+          superTitle: Quantiles
         - name: QuantileUpperResultColumn
           title: x2
           type: integer
           visible: (QuantileFunction && QuantileFunctionType=="central")
-          superTitle: Quantile(s)
+          superTitle: Quantiles
           
     - name: plot
       title: ""
