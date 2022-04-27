@@ -46,6 +46,12 @@ analyses:
     menuGroup: distrACTION
     menuTitle: Binomial Distribution
     menuSubgroup: Discrete distributions
+  - title: Poisson Distribution
+    name: PoissonDistribution
+    ns: distrACTION
+    menuGroup: distrACTION
+    menuSubgroup: Discrete distributions
+    menuTitle: Poisson Distribution
 usesNative: true
 minApp: 1.0.8
 

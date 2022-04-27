@@ -1,0 +1,68 @@
+---
+name:  PoissonDistribution
+title: Poisson Distribution
+menuGroup: distrACTION
+menuSubgroup: Discrete distributions
+version: '1.0.0'
+jas: '1.2'
+
+options:
+    - title: Compute probability
+      name: DistributionFunction
+      type: Bool
+      default: FALSE
+
+
+    - title: Compute quantile(s)
+      name: QuantileFunction
+      type: Bool
+      default: FALSE
+      
+
+    - name: QuantileFunctionType
+      title: Mode for Quantiles
+      type: List
+      options: 
+        - title: central interval quantiles
+          name: central
+        - title: cumulative quantile
+          name: cumulative
+      default: central
+
+
+    - name: DistributionFunctionType
+      title: Mode for Distribution
+      type: List
+      options:
+        - title: P(X ≤ x1)
+          name:  lower
+        - title: P(X ≥ x1)
+          name:  higher
+        - title: P(x1 ≤ X ≤ x2)
+          name: interval
+        - title: P(X = x1)
+          name: is
+      default: is
+
+    - name: x1
+      title: x1 =
+      type: Number
+      default: 0
+
+    - name: p
+      title: p =
+      type: Number
+      min: 0
+      max: 1
+      default: 0.5
+
+    - name: x2
+      title: x2 =
+      type: Number
+      default: 1
+
+    - name: dp1
+      title: Rate =
+      type: Number
+      default: 10
+...
