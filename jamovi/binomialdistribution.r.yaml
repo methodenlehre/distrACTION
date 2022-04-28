@@ -13,22 +13,19 @@ items:
           title: Parameters
           type: text
         - name: DistributionFunctionColumn
-          title: "'Compute probability'"
+          title: "Compute probability"
           type: text
           visible: (DistributionFunction)
         - name: QuantileFunctionColumn
-          title: "'Compute quantile(s)'"
+          title: "Compute quantile(s)"
           type: text
           visible: (QuantileFunction)
 
     - name: Outputs
       title: "Results"
       type: Table
+      visible: (DistributionFunction || QuantileFunction)
       rows: 1
-      clearWith:  # <-- here
-        - group
-        - alt
-        - varEq
       columns:
         - name: DistributionResultColumn
           title: Probability
