@@ -25,7 +25,7 @@ Chi2DistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
         XValue2 <- self$options$x2
         # The specification of the first distribution parameter (df1) is extracted
         DP1 <- self$options$dp1
-        # The specification of the second distribution parameter (δ)
+        # The specification of the second distribution parameter (λ)
         DP2 <- self$options$dp2
         
         
@@ -48,7 +48,7 @@ Chi2DistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
         ##### 1.1.3) Inputs table ######
         # Label for the distribution parameters
         InputLabel1 <- "df = "
-        InputLabel2 <- "δ = "
+        InputLabel2 <- "λ = "
         DistributionFunctionTypeLabel <- ""
         QuantileFunctionTypeLabel <- ""
         # Label for the selected type of distribution function
