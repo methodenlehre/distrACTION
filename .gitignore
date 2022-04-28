@@ -41,3 +41,8 @@ R/chi2distribution.h.R
 R/binomialdistribution.h.R
 R/normaldistribution.h.R
 R/poissondistribution.h.R
+R/binomialdistribution.h.R
+R/tdistribution.h.R
+R/poissondistribution.h.R
+R/normaldistribution.h.R
+R/fdistribution.h.R

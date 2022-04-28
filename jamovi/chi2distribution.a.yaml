@@ -55,7 +55,7 @@ options:
       min: 1
 
     - name: dp2
-      title: λ = 
+      title: δ = 
       type: Number
       default: 0
 
