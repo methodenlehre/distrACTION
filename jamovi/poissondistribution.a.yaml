@@ -52,7 +52,7 @@ options:
       default: 1
 
     - name: dp1
-      title: Rate =
+      title: λ =
       type: Number
       default: 10
 ...

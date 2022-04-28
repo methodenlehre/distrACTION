@@ -41,7 +41,7 @@ PoissonDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
       
       ##### 1.1.3) Label setting ##### 
       # Label for the distribution parameters
-      InputLabel1 <- "Rate = "
+      InputLabel1 <- "λ = "
       DistributionFunctionTypeLabel <- ""
       # Label for the selected type of distribution function
       if (DistributionFunctionType=="is"){
