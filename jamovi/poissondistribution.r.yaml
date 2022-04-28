@@ -38,18 +38,8 @@ items:
         - name: QuantileResultColumn
           title: x1
           type: integer
-          visible: (QuantileFunction && QuantileFunctionType=="cumulative")
+          visible: (QuantileFunction)
           superTitle: Quantile
-        - name: QuantileLowerResultColumn
-          title: x1
-          type: integer
-          visible: (QuantileFunction && QuantileFunctionType=="central")
-          superTitle: Quantiles
-        - name: QuantileUpperResultColumn
-          title: x2
-          type: integer
-          visible: (QuantileFunction && QuantileFunctionType=="central")
-          superTitle: Quantiles
           
     - name: plot
       title: ""

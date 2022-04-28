@@ -15,8 +15,6 @@ PoissonDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
       DistributionFunction <- self$options$DistributionFunction ### == TRUE|FALSE      
       # Is the quantile function selected?
       QuantileFunction <- self$options$QuantileFunction ### == TRUE|FALSE       
-      # Which type of the quantile function is selected?
-      QuantileFunctionType <- self$options$QuantileFunctionType ### == central|cumulative
       # Which type of the distribution function is selected?
       DistributionFunctionType <- self$options$DistributionFunctionType ### == lower|higher|interval|is
       # The specification of the x value is extracted
@@ -28,37 +26,23 @@ PoissonDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
       # The specification of the first distribution parameter (Rate) is extracted
       DP1 <- self$options$dp1
       #The quantiles are recalculated if the central interval quantile is selected
-      if(QuantileFunction== "TRUE"){
-        if (QuantileFunctionType=="central") {
-          # The lower end of the central interval is calculated
-          LowerQuantile <- ((1-Quantile)/2)
-          # The hihger end of the central interval is calculated
-          HigherQuantile <- LowerQuantile+Quantile}}
       
       
       ##### 1.1.2) Definition of variables #####
       # The lower end of the distribution
       LowerTail <- 0
       # The upper end of the distribution
-      UpperTail <- XValue
+      UpperTail <- 1.3*DP1+12
       # The number of values in the curve
       N <-  DP1
       # Define a variable for the columname of dataframes
       Columnames <- c("X", "Prob")
-      # The quantiles are recalculated if the central interval quantile function is selected
-      if(QuantileFunction== "TRUE"){
-        if (QuantileFunctionType=="central") {
-          # The lower end of the central interval is calculated
-          LowerQuantile <- ((1-Quantile)/2)
-          # The hihger end of the central interval is calculated
-          HigherQuantile <- LowerQuantile+Quantile}}
       
       
       ##### 1.1.3) Label setting ##### 
       # Label for the distribution parameters
       InputLabel1 <- "Rate = "
       DistributionFunctionTypeLabel <- ""
-      QuantileFunctionTypeLabel <- ""
       # Label for the selected type of distribution function
       if (DistributionFunctionType=="is"){
         DistributionFunctionTypeLabel <- "Mode: P(X = x1)"}
@@ -68,10 +52,6 @@ PoissonDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
         DistributionFunctionTypeLabel <- paste("Mode: x2 = ", XValue2, sep = "")}
       if (DistributionFunctionType=="higher"){
         DistributionFunctionTypeLabel <- "Mode: P(X ≥ x1)"}
-      if (QuantileFunctionType=="cumulative") {
-        QuantileFunctionTypeLabel <- "cumulative mode"}      
-      if (QuantileFunctionType=="central") {
-        QuantileFunctionTypeLabel <- "central mode"}
       
       
       ##### 1.1.4) Inputs table ######
@@ -84,7 +64,7 @@ PoissonDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
       InputSummary[2,1] <- paste("")
       InputSummary[2,2] <- DistributionFunctionTypeLabel
       InputSummary[1,3] <- paste("p = ", Quantile, sep = "")
-      InputSummary[2,3] <- QuantileFunctionTypeLabel
+      InputSummary[2,3] <- paste("")
       # The input matrix is written to the corresponding result cell
       Inputs <- self$results$Inputs
       Inputs$setRow(rowNo=1, values=list(
@@ -99,7 +79,7 @@ PoissonDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
       ###### 1.2) Quantile & Distribution calculation ######
       ##### 1.2.1) Calculations #####
       # The sequence with the values for the distribution is created
-      x <- seq(0, N, length=N+1)
+      x <- seq(LowerTail, UpperTail, length=N+1)
       # Calculation of the distribution density
       Density <- dpois(x, DP1)
       if(DistributionFunction=="TRUE"){ 
@@ -112,13 +92,8 @@ PoissonDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
           # The result is the difference between the two quantiles P(x1 <= X <= x2) = P(X <= x2) - P(X <= x1) + P(X = x1)
           DistributionResult <- ppois(XValue2, DP1) - ppois(XValue, DP1) + dpois(XValue, DP1)}}
       if(QuantileFunction=="TRUE"){
-        if (QuantileFunctionType=="cumulative"){
           # The x-value of the percentil is calculated
           QuantileResult <- qpois(Quantile, DP1)}
-        if (QuantileFunctionType=="central"){
-          # The x-value of the central interval is calculated
-          QuantileResult <- qpois(LowerQuantile, DP1)
-          QuantileResult2 <- qpois(HigherQuantile, DP1)}}
       
       
       ##### 1.2.2) Output Table #####
@@ -133,11 +108,7 @@ PoissonDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
           DistributionResult <- dpois(XValue, DP1)}
         OutputLabel11 <- DistributionResult}
       if(QuantileFunction=="TRUE"){
-        if (QuantileFunctionType=="cumulative") {
-          OutputLabel12 <- QuantileResult}
-        if (QuantileFunctionType=="central") {
-          OutputLabel12 <- QuantileResult
-          OutputLabel22 <- QuantileResult2}}
+        OutputLabel12 <- QuantileResult}
       # The Output-Matrix is written to the according Result-Frame
       Outputs <- self$results$Outputs
       Outputs$setRow(rowNo=1, values=list(
@@ -186,9 +157,9 @@ PoissonDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
       # The size of the legends text is defined
       Textsize <- 16
       # The lowest segment of the x-axis is defined
-      LowerAxisSegment <- 0
+      LowerAxisSegment <- LowerTail
       # The highest segment of the x-axis is defined
-      HigherAxisSegment <- DP1
+      HigherAxisSegment <- UpperTail
       # The segments of the x-axis are defined
       AxisSegments <- seq(LowerAxisSegment, HigherAxisSegment, by = 1)  
       # A variable for the position of the upper quantile is defined
@@ -201,7 +172,6 @@ PoissonDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
       LowerSegmentLength <- NA
       # The position of the upper quantile is calculated
       if(QuantileFunction=="TRUE"){
-        if(QuantileFunctionType=="cumulative"){
           HigherSegment <- QuantileResult
           HigherSegmentLength <- dpois(HigherSegment, DP1)
           # The length of the quantile segment is changed if it is too short
@@ -209,27 +179,13 @@ PoissonDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
             HigherSegmentLength <- ((max(Datas$Prob))/18)}
           # the position of the lower quantile is the same.
           LowerSegment <- HigherSegment
-          LowerSegmentLength <- HigherSegmentLength}
-        if(QuantileFunctionType=="central"){
-          LowerSegment <- qpois(LowerQuantile, DP1)
-          LowerSegmentLength <- dpois(LowerSegment, DP1)
-          HigherSegment <- qpois(HigherQuantile, DP1)
-          HigherSegmentLength <- dpois(HigherSegment, DP1)
-          # Also this quantile segment is shortened if it is too short
-          if((LowerSegmentLength*18)<(max(Datas$Prob))){
-            LowerSegmentLength <- ((max(Datas$Prob))/18)
-            HigherSegmentLength <- ((max(Datas$Prob))/18)}}
+          LowerSegmentLength <- HigherSegmentLength
         
         
         ##### 1.3.4) Improvements of the plot by conditions #####
         # A value to check if the quantiles are within the x-axis is calculated      
-        if(QuantileFunctionType=="cumulative"){
-          HighLineCheck <- qpois(Quantile, DP1)}
-        if(QuantileFunctionType=="central"){
-          HighLineCheck <- qpois(HigherQuantile, DP1)
-          LowLineCheck <- qpois(LowerQuantile, DP1)}
+          HighLineCheck <- qpois(Quantile, DP1)
         # Changes are done if the quantile is outside the x-axis
-        if(QuantileFunctionType=="cumulative"){
           if(HighLineCheck>HigherAxisSegment){
             QuantileLabel <- "Quantile out of range"
             QuantAlphaLow <- 0
@@ -244,24 +200,6 @@ PoissonDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
             Textsize <- 10
             HigherSegment <- HigherAxisSegment
             LowerSegment <- HigherAxisSegment}}
-        if(QuantileFunctionType=="central"){
-          if(HighLineCheck>HigherAxisSegment){
-            QuantileLabel <- "(Upper) Quantile out of range"
-            QuantAlphaHigh <- 0
-            Textsize <- 10
-            HigherSegment <- HigherAxisSegment}
-          if(LowLineCheck<LowerAxisSegment){
-            QuantileLabel <- "(Lower) Quantile out of range"
-            QuantAlphaLow <- 0
-            Textsize <- 10
-            LowerSegment <- LowerAxisSegment}
-          if((LowLineCheck<LowerAxisSegment)&(HighLineCheck>HigherAxisSegment)){
-            QuantileLabel <- "Quantile out of range"
-            QuantAlphaHigh <- 0
-            QuantAlphaLow <- 0
-            Textsize <- 10
-            HigherSegment <- HigherAxisSegment
-            LowerSegment <- LowerAxisSegment}}}
       
       
       ##### 1.3.5) Submit datas for plot #####

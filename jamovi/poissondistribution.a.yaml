@@ -19,16 +19,6 @@ options:
       default: FALSE
       
 
-    - name: QuantileFunctionType
-      title: Mode for Quantiles
-      type: List
-      options: 
-        - title: central interval quantiles
-          name: central
-        - title: cumulative quantile
-          name: cumulative
-      default: central
-
 
     - name: DistributionFunctionType
       title: Mode for Distribution

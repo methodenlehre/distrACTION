@@ -65,13 +65,3 @@ children:
                 name: p
                 format: number
                 enable: (QuantileFunction)
-              - type: RadioButton
-                name: QuantileFunctionType_cumulative
-                optionName: QuantileFunctionType
-                optionPart: cumulative
-                enable: (QuantileFunction)
-              - type: RadioButton
-                name: QuantileFunctionType_central
-                optionName: QuantileFunctionType
-                optionPart: central
-                enable: (QuantileFunction)
