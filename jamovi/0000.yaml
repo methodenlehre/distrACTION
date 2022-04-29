@@ -3,7 +3,7 @@ title: >-
   distrACTION - Quantiles and Probabilities of Continuous and Discrete
   Distributions
 name: distrACTION
-version: 1.0.0
+version: 1.0.1
 jms: '1.0'
 authors:
   - Michael Rihs
@@ -46,5 +46,7 @@ analyses:
     menuGroup: distrACTION
     menuTitle: Binomial Distribution
     menuSubgroup: Discrete distributions
+usesNative: true
+minApp: 1.0.8
 
 ...

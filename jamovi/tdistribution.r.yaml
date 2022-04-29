@@ -25,15 +25,31 @@ items:
       title: "Results"
       type: Table
       rows: 1
+      clearWith:  # <-- here
+        - group
+        - alt
+        - varEq
       columns:
-        - name: DistributionResultColumn
-          title: Probability
-          type: text
-          visible: (DistributionFunction)
-        - name: QuantileResultColumn
-          title: Quantile(s)
-          type: text
-          visible: (QuantileFunction)
+         - name: DistributionResultColumn
+           title: Probability
+           type: number
+           format: zto
+           visible: (DistributionFunction)
+         - name: QuantileResultColumn
+           title: x1
+           type: number
+           visible: (QuantileFunction && QuantileFunctionType=="cumulative")
+           superTitle: Quantile
+         - name: QuantileLowerResultColumn
+           title: x1
+           type: number
+           visible: (QuantileFunction && QuantileFunctionType=="central")
+           superTitle: Quantiles
+         - name: QuantileUpperResultColumn
+           title: x2
+           type: number
+           visible: (QuantileFunction && QuantileFunctionType=="central")
+           superTitle: Quantiles
           
     - name: plot
       title: ""
