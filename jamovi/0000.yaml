@@ -12,7 +12,7 @@ maintainer: The package maintainer <michael.rihs@psy.unibe.ch>
 date: '2018-10-02'
 type: R
 description: >-
-  A tool for calculating and plotting the cumulative distribution function (CDF)
+  A tool for calculating and plotting the cumulative distribution fyyyunction (CDF)
   and the quantile function (Inverse CDF) for a number of discrete and
   continuous distributions.
 analyses:
@@ -46,6 +46,12 @@ analyses:
     menuGroup: distrACTION
     menuTitle: Binomial Distribution
     menuSubgroup: Discrete distributions
+  - title: Poisson Distribution
+    name: PoissonDistribution
+    ns: distrACTION
+    menuGroup: distrACTION
+    menuSubgroup: Discrete distributions
+    menuTitle: Poisson Distribution
 usesNative: true
 minApp: 1.0.8
 
