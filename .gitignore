@@ -1,6 +1,5 @@
 
-build/js
-build/R
+build/
 temp/
 
 .Rproj.user
