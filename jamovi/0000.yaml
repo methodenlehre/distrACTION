@@ -3,13 +3,13 @@ title: >-
   distrACTION - Quantiles and Probabilities of Continuous and Discrete
   Distributions
 name: distrACTION
-version: 1.0.0
+version: 1.0.1
 jms: '1.0'
 authors:
   - Michael Rihs
   - Boris Mayer
-maintainer: The package maintainer <michael.rihs@psy.unibe.ch>
-date: '2018-10-02'
+maintainer: <boris.mayer@unibe.ch>
+date: '2022-06-04'
 type: R
 description: >-
   A tool for calculating and plotting the cumulative distribution function (CDF)
@@ -46,12 +46,6 @@ analyses:
     menuGroup: distrACTION
     menuTitle: Binomial Distribution
     menuSubgroup: Discrete distributions
-  - title: Poisson Distribution
-    name: PoissonDistribution
-    ns: distrACTION
-    menuGroup: distrACTION
-    menuSubgroup: Discrete distributions
-    menuTitle: Poisson Distribution
 usesNative: true
 minApp: 1.0.8
 

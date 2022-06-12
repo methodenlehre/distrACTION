@@ -1,21 +1,7 @@
 
-build/js
-build/R
+build/
 temp/
 
 .Rproj.user
 *.jmo
-build/R4.1.2-macos/distrACTION/DESCRIPTION
-build/R4.1.2-macos/distrACTION/Meta/features.rds
-build/R4.1.2-macos/distrACTION/Meta/hsearch.rds
-build/R4.1.2-macos/distrACTION/Meta/links.rds
-build/R4.1.2-macos/distrACTION/Meta/nsInfo.rds
-build/R4.1.2-macos/distrACTION/Meta/package.rds
-build/R4.1.2-macos/distrACTION/NAMESPACE
-build/R4.1.2-macos/distrACTION/R/distrACTION
-build/R4.1.2-macos/distrACTION/R/distrACTION.rdb
-build/R4.1.2-macos/distrACTION/R/distrACTION.rdx
-R/binomialdistribution.h.R
-R/chi2distribution.h.R
-R/fdistribution.h.R
-R/normaldistribution.h.R
+.Rhistory

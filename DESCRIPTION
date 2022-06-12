@@ -1,11 +1,11 @@
 Package: distrACTION
 Type: Package
 Title: distrACTION
-Version: 1.0.0
-Author: Rihs, M.& Mayer, B. 
-Maintainer: The package maintainer <michael.rihs@psy.unibe.ch>
+Version: 1.0.1
+Author: Rihs, M. & Mayer, B. 
+Maintainer: <boris.mayer@unibe.ch>
 Description: A tool for calculating and plotting the cumulative distribution function (CDF) and the quantile function (Inverse CDF) for a number of discrete and continuous distributions. 
-License: What license is it under?
+License: 
 Encoding: UTF-8
 LazyData: true
 Imports: jmvcore (>= 0.8.5), R6, ggplot2
