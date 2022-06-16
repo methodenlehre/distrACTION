@@ -8,7 +8,6 @@ PoissonDistributionOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6:
         initialize = function(
             DistributionFunction = FALSE,
             QuantileFunction = FALSE,
-            QuantileFunctionType = "central",
             DistributionFunctionType = "is",
             x1 = 0,
             p = 0.5,
@@ -29,13 +28,6 @@ PoissonDistributionOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6:
                 "QuantileFunction",
                 QuantileFunction,
                 default=FALSE)
-            private$..QuantileFunctionType <- jmvcore::OptionList$new(
-                "QuantileFunctionType",
-                QuantileFunctionType,
-                options=list(
-                    "central",
-                    "cumulative"),
-                default="central")
             private$..DistributionFunctionType <- jmvcore::OptionList$new(
                 "DistributionFunctionType",
                 DistributionFunctionType,
@@ -66,7 +58,6 @@ PoissonDistributionOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6:
 
             self$.addOption(private$..DistributionFunction)
             self$.addOption(private$..QuantileFunction)
-            self$.addOption(private$..QuantileFunctionType)
             self$.addOption(private$..DistributionFunctionType)
             self$.addOption(private$..x1)
             self$.addOption(private$..p)
@@ -76,7 +67,6 @@ PoissonDistributionOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6:
     active = list(
         DistributionFunction = function() private$..DistributionFunction$value,
         QuantileFunction = function() private$..QuantileFunction$value,
-        QuantileFunctionType = function() private$..QuantileFunctionType$value,
         DistributionFunctionType = function() private$..DistributionFunctionType$value,
         x1 = function() private$..x1$value,
         p = function() private$..p$value,
@@ -85,7 +75,6 @@ PoissonDistributionOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6:
     private = list(
         ..DistributionFunction = NA,
         ..QuantileFunction = NA,
-        ..QuantileFunctionType = NA,
         ..DistributionFunctionType = NA,
         ..x1 = NA,
         ..p = NA,
@@ -147,20 +136,8 @@ PoissonDistributionResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6:
                         `name`="QuantileResultColumn", 
                         `title`="x1", 
                         `type`="integer", 
-                        `visible`="(QuantileFunction && QuantileFunctionType==\"cumulative\")", 
-                        `superTitle`="Quantile"),
-                    list(
-                        `name`="QuantileLowerResultColumn", 
-                        `title`="x1", 
-                        `type`="integer", 
-                        `visible`="(QuantileFunction && QuantileFunctionType==\"central\")", 
-                        `superTitle`="Quantiles"),
-                    list(
-                        `name`="QuantileUpperResultColumn", 
-                        `title`="x2", 
-                        `type`="integer", 
-                        `visible`="(QuantileFunction && QuantileFunctionType==\"central\")", 
-                        `superTitle`="Quantiles"))))
+                        `visible`="(QuantileFunction)", 
+                        `superTitle`="Quantile"))))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="plot",
@@ -194,7 +171,6 @@ PoissonDistributionBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
 #' 
 #' @param DistributionFunction .
 #' @param QuantileFunction .
-#' @param QuantileFunctionType .
 #' @param DistributionFunctionType .
 #' @param x1 .
 #' @param p .
@@ -217,7 +193,6 @@ PoissonDistributionBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
 PoissonDistribution <- function(
     DistributionFunction = FALSE,
     QuantileFunction = FALSE,
-    QuantileFunctionType = "central",
     DistributionFunctionType = "is",
     x1 = 0,
     p = 0.5,
@@ -231,7 +206,6 @@ PoissonDistribution <- function(
     options <- PoissonDistributionOptions$new(
         DistributionFunction = DistributionFunction,
         QuantileFunction = QuantileFunction,
-        QuantileFunctionType = QuantileFunctionType,
         DistributionFunctionType = DistributionFunctionType,
         x1 = x1,
         p = p,
