@@ -1,0 +1,80 @@
+title: Negative Binomial Distribution
+name: NegativeBinomialDistribution
+jus: '2.0'
+stage: 0
+compilerMode: tame
+children:
+  - type: Label
+    label: Parameters
+    children:
+      - type: TextBox
+        name: dp1
+        format: number
+      - type: TextBox
+        name: dp2
+        format: number
+  - type: Label
+    label: Function
+    children:
+      - type: LayoutBox
+        style: inline
+        children:
+          - type: LayoutBox
+            margin: large
+            cell:
+              row: 1
+              column: 1
+            children:
+              - type: CheckBox
+                name: DistributionFunction
+              - type: TextBox
+                name: x1
+                format: number
+                enable: (DistributionFunction)
+              - type: RadioButton
+                name: DistributionFunctionType_is
+                optionName: DistributionFunctionType
+                optionPart: is
+                enable: (DistributionFunction)
+              - type: RadioButton
+                name: DistributionFunctionType_lower
+                optionName: DistributionFunctionType
+                optionPart: lower
+                enable: (DistributionFunction)
+              - type: RadioButton
+                name: DistributionFunctionType_higher
+                optionName: DistributionFunctionType
+                optionPart: higher
+                enable: (DistributionFunction)
+              - type: RadioButton
+                name: DistributionFunctionType_interval
+                optionName: DistributionFunctionType
+                optionPart: interval
+                enable: (DistributionFunction)
+                children:
+                  - type: TextBox
+                    name: x2
+                    format: number
+                    enable: (DistributionFunction)
+          - type: LayoutBox
+            margin: large
+            cell:
+              row: 1
+              column: 2
+            children:
+              - type: CheckBox
+                name: QuantileFunction
+              - type: TextBox
+                name: p
+                format: number
+                enable: (QuantileFunction)
+              - type: RadioButton
+                name: QuantileFunctionType_cumulative
+                optionName: QuantileFunctionType
+                optionPart: cumulative
+                enable: (QuantileFunction)
+              - type: RadioButton
+                name: QuantileFunctionType_central
+                optionName: QuantileFunctionType
+                optionPart: central
+                enable: (QuantileFunction)

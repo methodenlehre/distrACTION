@@ -3,7 +3,7 @@ title: >-
   distrACTION - Quantiles and Probabilities of Continuous and Discrete
   Distributions
 name: distrACTION
-version: 1.1.0
+version: 1.2.0
 jms: '1.0'
 authors:
   - Michael Rihs
@@ -46,12 +46,24 @@ analyses:
     menuGroup: distrACTION
     menuTitle: Binomial Distribution
     menuSubgroup: Discrete distributions
+  - title: Geometric Distribution
+    name: GeometricDistribution
+    ns: distrACTION
+    menuGroup: distrACTION
+    menuSubgroup: Discrete distributions
+    menuTitle: Geometric Distribution
   - title: Poisson Distribution
     name: PoissonDistribution
     ns: distrACTION
     menuGroup: distrACTION
     menuSubgroup: Discrete distributions
     menuTitle: Poisson Distribution
+  - title: Negative Binomial Distribution
+    name: NegativeBinomialDistribution
+    ns: distrACTION
+    menuGroup: distrACTION
+    menuSubgroup: Discrete distributions
+    menuTitle: Negative Binomial Distribution
 usesNative: true
 minApp: 1.0.8
 
