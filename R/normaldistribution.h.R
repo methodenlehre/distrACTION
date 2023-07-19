@@ -193,7 +193,8 @@ NormaldistributionBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6C
                 revision = revision,
                 pause = NULL,
                 completeWhenFilled = FALSE,
-                requiresMissings = FALSE)
+                requiresMissings = FALSE,
+                weightsSupport = 'na')
         }))
 
 #' Normal Distribution

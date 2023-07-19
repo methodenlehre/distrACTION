@@ -170,7 +170,8 @@ Chi2DistributionBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Cla
                 revision = revision,
                 pause = NULL,
                 completeWhenFilled = FALSE,
-                requiresMissings = FALSE)
+                requiresMissings = FALSE,
+                weightsSupport = 'na')
         }))
 
 #' χ2-Distribution
