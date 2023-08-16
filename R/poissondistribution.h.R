@@ -163,7 +163,8 @@ PoissonDistributionBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6
                 revision = revision,
                 pause = NULL,
                 completeWhenFilled = FALSE,
-                requiresMissings = FALSE)
+                requiresMissings = FALSE,
+                weightsSupport = 'na')
         }))
 
 #' Poisson Distribution

@@ -57,11 +57,11 @@ NormaldistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
       QuantileFunctionTypeLabel <- ""
       # Label for the selected type of distribution function
       if (DistributionFunctionType=="lower"){
-        DistributionFunctionTypeLabel <- "Mode: P(X ≤ x1)"}
+        DistributionFunctionTypeLabel <- "Mode: P(X \u2264 x1)"}
       if (DistributionFunctionType=="interval"){
         DistributionFunctionTypeLabel <- paste("Mode: x2 = ", XValue2, sep = "")}
       if (DistributionFunctionType=="higher"){
-        DistributionFunctionTypeLabel <- "Mode: P(X ≥ x1)"}
+        DistributionFunctionTypeLabel <- "Mode: P(X \u2265 x1)"}
       if (QuantileFunctionType=="cumulative") {
         QuantileFunctionTypeLabel <- "cumulative mode"}      
       if (QuantileFunctionType=="central") {
@@ -278,7 +278,7 @@ NormaldistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
       
       
       ###### 1.4) Error Messages #####
-      #Error if XValue≥XValue2
+      #Error if XValue\u2265XValue2
       if(((DistributionFunction=="TRUE") & (DistributionFunctionType=="interval"))&(XValue>=XValue2)){
         Inputs$setError("x2 must be greater than x1. ")
         Outputs$setVisible(visible=FALSE)}},
