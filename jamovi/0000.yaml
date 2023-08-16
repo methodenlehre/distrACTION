@@ -3,14 +3,14 @@ title: >-
   distrACTION - Quantiles and Probabilities of Continuous and Discrete
   Distributions
 name: distrACTION
-version: 1.1.1
+version: 1.1.2
 jms: '1.0'
 authors:
   - Boris Mayer
   - Michael Rihs
   - Cameron Redsell-Montgomerie
 maintainer: Boris Mayer <boris.mayer@unibe.ch>
-date: '2022-09-17'
+date: '2023-08-16'
 type: R
 description: >-
   A tool for calculating and plotting probabilities and quantiles  (cumulative
