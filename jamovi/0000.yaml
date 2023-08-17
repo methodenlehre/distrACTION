@@ -52,18 +52,25 @@ analyses:
     menuGroup: distrACTION
     menuSubgroup: Discrete distributions
     menuTitle: Geometric Distribution
-  - title: Poisson Distribution
-    name: PoissonDistribution
+  - title: Hypergeometric Distribution
+    name: HypergeometricDistribution
     ns: distrACTION
     menuGroup: distrACTION
     menuSubgroup: Discrete distributions
-    menuTitle: Poisson Distribution
+    menuTitle: Hypergeometric Distribution
   - title: Negative Binomial Distribution
     name: NegativeBinomialDistribution
     ns: distrACTION
     menuGroup: distrACTION
     menuSubgroup: Discrete distributions
     menuTitle: Negative Binomial Distribution
+  - title: Poisson Distribution
+    name: PoissonDistribution
+    ns: distrACTION
+    menuGroup: distrACTION
+    menuSubgroup: Discrete distributions
+    menuTitle: Poisson Distribution
+
 usesNative: true
 minApp: 1.0.8
 
