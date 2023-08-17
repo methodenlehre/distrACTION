@@ -19,7 +19,6 @@ options:
       default: FALSE
       
 
-
     - name: DistributionFunctionType
       title: Mode for Distribution
       type: List

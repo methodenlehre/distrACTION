@@ -32,7 +32,7 @@ PoissonDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
       # The lower end of the distribution
       LowerTail <- 0
       # The upper end of the distribution
-      UpperTail <- UpperTail <- ceiling(qpois(0.99999, DP1))
+      UpperTail <- ceiling(qpois(0.99999, DP1))
       # The number of values in the curve
       N <-  ceiling(qpois(0.99999, DP1))
       # Define a variable for the columname of dataframes
@@ -162,6 +162,12 @@ PoissonDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
       HigherAxisSegment <- UpperTail
       # The segments of the x-axis are defined
       AxisSegments <- seq(LowerAxisSegment, HigherAxisSegment, by = 1)  
+      if(N>50){
+        binwidth <- floor(N/50)*5
+        AxisSegments <- seq(LowerAxisSegment, HigherAxisSegment, by =  binwidth)}
+      if(N>100){
+        binwidth <- floor(N/100)*10
+        AxisSegments <- seq(LowerAxisSegment, HigherAxisSegment, by =  binwidth)}
       # A variable for the position of the upper quantile is defined
       HigherSegment <- NA
       # A variable for the position of the lower quantile is defined

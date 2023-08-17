@@ -75,7 +75,7 @@ TDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
         ##### 1.1.3) Label setting ##### 
         # Label for the distribution parameters
         InputLabel1 <- "df = "
-        InputLabel2 <- "λ = "
+        InputLabel2 <- "δ = "
         DistributionFunctionTypeLabel <- ""
         QuantileFunctionTypeLabel <- ""
         # Label for the selected type of distribution function
