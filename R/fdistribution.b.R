@@ -113,7 +113,7 @@ FDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
             # The result is the difference between the two quantiles
             DistributionResult <- DistributionResult2-DistributionResult1}}
         if(QuantileFunction=="TRUE"){
-            # The x-value of the percentil is calculated
+            # The x-value of the percentile is calculated
           QuantileResult <- qf(Quantile, DP1, DP2, DP3)}
         
         
@@ -129,7 +129,7 @@ FDistributionClass <- if (requireNamespace('jmvcore')) R6::R6Class(
             DistributionResult <- 1-DistributionResult}
           OutputLabel11 <- DistributionResult}
         if(QuantileFunction=="TRUE"){
-            OutputLabel12 <- pQuantileResult}
+            OutputLabel12 <- QuantileResult}
          # The Output-Matrix is written to the according Result-Frame
         Outputs <- self$results$Outputs
         Outputs$setRow(rowNo=1, values=list(
