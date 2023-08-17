@@ -8,4 +8,6 @@ A jamovi module that allows calculation of probabilities and quantiles (cumulati
 - Discrete
   - Binomial
   - Geometric
+  - Hypergeometric
+  - Negative Binomial
   - Poisson
